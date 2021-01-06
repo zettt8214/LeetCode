@@ -18,8 +18,13 @@ int main() {
 	
 	vector < vector<int >> grid = {{1, 2, 3}, {8, 9, 4}, {7, 6, 5}};
 	vector < vector<int >> ans = pacificAtlantic(grid);
-	for (auto x : ans) {
-		cout << "(" << x[0] << "," << x[1] << ") ";
+	
+	vector<vector<string>> result = solveNQueens(4);
+	for (auto x : result) {
+		for (auto s : x) {
+			cout << s <<endl;
+		}
+		cout << endl;
 	}
 	return 0;
 }

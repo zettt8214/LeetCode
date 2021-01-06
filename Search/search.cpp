@@ -6,6 +6,7 @@
 #include <set>
 using namespace std;
 
+// 二分查找
 /*************************************************************************
 * 69.Sqrt(x)
 * 
@@ -513,7 +514,7 @@ vector<vector<int>> pacificAtlantic(vector<vector<int>>& matrix) {
 }
 
 
-//trace back
+//回溯算法
 /*
 * @brief	46. Permutations
 * @detail	Given an array nums of distinct integers, return all the possible permutations. 
@@ -633,6 +634,47 @@ bool exist(vector<vector<char>>& board, string word) {
 *			both indicate a queen and an empty space, respectively.
 */
 
-vector<vector<string>> solveNQueens(int n) {
+void ShowUsed(vector<vector<int>>& used) {
+	for (auto row : used) {
+		for (auto column : row) {
+			cout << column << " ";
+		}
+		cout << endl;
+	}
+}
 
+vector<vector<string>> result;
+vector<string> solution;
+
+void NQueensHelper(vector<vector<bool>>&used, int row,int n) {
+	
+	if (row == n) {
+		result.push_back(solution);
+		return;
+	}
+	string row_layout;
+	row_layout.assign(n, '.');
+
+	for (int j = 0; j < n; j++) {
+		if (!used[0][j] && !used[1][row + j] && !used[2][n - 1 - j + row]) {
+			row_layout[j] = 'Q';
+			solution.push_back(row_layout);
+			used[0][j] = used[1][row + j] = used[2][n - 1 - j + row] = true;
+			NQueensHelper(used,row + 1,n);
+			solution.pop_back();
+			used[0][j] = used[1][row + j] = used[2][n - 1 - j + row] = false;
+			row_layout[j] = '.';
+		}
+	}
+}
+vector<vector<string>> solveNQueens(int n) {
+	vector<bool> columns_used(n, false);
+	vector<bool> left_diagonals_used(2 * n - 1, false);		// 棋盘上左斜‘/’方向共2 * n - 1 行
+	vector<bool> right_diagonals_used(2 * n - 1, false);    // 棋盘上右斜‘\’方向共2 * n - 1 行
+	vector<vector<bool>> used;	
+	used.push_back(columns_used);
+	used.push_back(left_diagonals_used);
+	used.push_back(right_diagonals_used);
+	NQueensHelper(used,0,n);	//第一排,第一个位置放置棋子。
+	return result;
 }
