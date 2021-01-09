@@ -142,13 +142,11 @@
     <ClCompile Include="Greedy\greedy.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Search\search.cpp" />
-    <ClCompile Include="Sort\my_sort.cpp" />
     <ClCompile Include="Sort\sort.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Greedy\greedy.h" />
     <ClInclude Include="Search\search.h" />
-    <ClInclude Include="Sort\my_sort.h" />
     <ClInclude Include="Sort\sort.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

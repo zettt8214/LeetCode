@@ -1,5 +1,5 @@
 #include "sort.h"
-#include "my_sort.h"
+
 #include <algorithm>
 #include <ctime>
 #include <iostream>
@@ -13,6 +13,12 @@
 * sorted order, not the kth distinct element.
 */
 
+void swap(vector<int>& nums, int i, int j) {
+	int temp;
+	temp = nums[i];
+	nums[i] = nums[j];
+	nums[j] = nums[i];
+}
 int quickSelect(vector<int>&nums,int left,int right) {  
 	int mid = left + (right - left) / 2;
 	swap(nums,left, mid);
