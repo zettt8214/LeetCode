@@ -139,12 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Dynamic Programming\dp.cpp" />
     <ClCompile Include="Greedy\greedy.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Search\search.cpp" />
     <ClCompile Include="Sort\sort.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Dynamic Programming\dp.h" />
     <ClInclude Include="Greedy\greedy.h" />
     <ClInclude Include="Search\search.h" />
     <ClInclude Include="Sort\sort.h" />
