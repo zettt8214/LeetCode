@@ -30,6 +30,9 @@
     <ClCompile Include="Dynamic Programming\dp.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Divide and Conquer\divide_conquer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Greedy\greedy.h">
@@ -42,6 +45,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Dynamic Programming\dp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Divide and Conquer\divide_conquer.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

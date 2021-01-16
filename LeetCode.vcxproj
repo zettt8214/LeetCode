@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Divide and Conquer\divide_conquer.cpp" />
     <ClCompile Include="Dynamic Programming\dp.cpp" />
     <ClCompile Include="Greedy\greedy.cpp" />
     <ClCompile Include="main.cpp" />
@@ -146,6 +147,7 @@
     <ClCompile Include="Sort\sort.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Divide and Conquer\divide_conquer.h" />
     <ClInclude Include="Dynamic Programming\dp.h" />
     <ClInclude Include="Greedy\greedy.h" />
     <ClInclude Include="Search\search.h" />

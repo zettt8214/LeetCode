@@ -7,6 +7,7 @@
 #include "Greedy\greedy.h"
 #include "Search\search.h"
 #include "Dynamic Programming\dp.h"
+#include "Divide and Conquer\divide_conquer.h"
 
 using namespace std;
 int main() {
@@ -62,11 +63,7 @@ int main() {
 
 	//cout << climbStairs(1);
 	//cout << numDecodings("2611055971756562");
-	vector<int> rob = { 47, 23, 38, 38, 3, 37, 18, 29, 27, 39, 29, 25, 4, 2, 0, 47, 10, 39, 23, 17
-	};
-	int S = 15;
-	vector<int> pairs = { 0,0,0 };
-	cout << wiggleMaxLength(pairs);
+	beautifulArray(7);
 }
 //"aasdfasdfasdfasdfas"
 //"aasdf.*asdf.*asdf.*asdf.*s"
