@@ -33,6 +33,9 @@
     <ClCompile Include="Divide and Conquer\divide_conquer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Data Structure\data_structure.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Greedy\greedy.h">
@@ -48,6 +51,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Divide and Conquer\divide_conquer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Data Structure\data_structure.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
