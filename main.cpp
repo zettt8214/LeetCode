@@ -9,10 +9,11 @@
 #include "Dynamic Programming\dp.h"
 #include "Divide and Conquer\divide_conquer.h"
 #include "Data Structure\data_structure.h"
+#include "String\str.h"
 
 using namespace std;
 int main() {
-	vector<int> nums = { 2,7,13,19 };
+	string expression = "323*22";
 	
-	nthSuperUglyNumber(12, nums);
+	cout << longestPalindrome5("ac");
 }

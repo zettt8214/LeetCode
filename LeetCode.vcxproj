@@ -140,20 +140,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Data Structure\data_structure.cpp" />
+    <ClCompile Include="Data Structure\list.cpp" />
     <ClCompile Include="Divide and Conquer\divide_conquer.cpp" />
     <ClCompile Include="Dynamic Programming\dp.cpp" />
     <ClCompile Include="Greedy\greedy.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Search\search.cpp" />
     <ClCompile Include="Sort\sort.cpp" />
+    <ClCompile Include="String\str.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Data Structure\data_structure.h" />
+    <ClInclude Include="Data Structure\list.h" />
     <ClInclude Include="Divide and Conquer\divide_conquer.h" />
     <ClInclude Include="Dynamic Programming\dp.h" />
     <ClInclude Include="Greedy\greedy.h" />
     <ClInclude Include="Search\search.h" />
     <ClInclude Include="Sort\sort.h" />
+    <ClInclude Include="String\str.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
