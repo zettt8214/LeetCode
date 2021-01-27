@@ -1,5 +1,7 @@
+#include <unordered_map>
 #include "list.h"
 
+using namespace std;
 
 /// <summary>
 /// 206. Reverse Linked List
@@ -140,4 +142,134 @@ bool isPalindrome(ListNode* head) {
 		head = head->next;
 	}
 	return true;
+}
+
+
+/// <summary>
+/// 83. Remove Duplicates from Sorted List
+/// </summary>
+ListNode* deleteDuplicates(ListNode* head) {
+	unordered_map<int, int> hash;
+	ListNode* p = head;
+	ListNode dummy;
+	dummy.next = head;
+	ListNode* prev = &dummy;
+
+	while (p) {
+		if (hash[p->val] > 0) {
+			prev->next = p->next;
+			delete p;
+			p = prev->next;
+		}
+		else {
+			hash[p->val]++;
+			prev = prev->next;
+			p = p->next;
+		}
+		
+	}
+	return dummy.next;
+}
+
+/// <summary>
+/// 328. Odd Even Linked List
+/// </summary>
+ListNode* oddEvenList(ListNode* head) {
+	ListNode* odd = head;
+	if (!odd) {
+		return head;
+	}
+
+	ListNode* even = odd->next;
+	ListNode* temp = even;
+	while (even && even->next) {
+		odd->next = odd->next->next;
+		even->next = even->next->next;
+
+		odd = odd->next;
+		even = even->next;
+		
+	}
+	odd->next = temp;
+	return head;
+
+}
+
+
+/// <summary>
+/// 19. Remove Nth Node From End of List
+/// </summary>
+ListNode* removeNthFromEnd(ListNode* head, int n) {
+	ListNode* p = head;
+	ListNode* q = head;
+	ListNode* prev = head;
+	while (n--) {
+		q = q->next;
+	}
+
+	while (q) {
+		prev = p;
+		q = q->next;
+		p = p->next;
+	}
+
+	if (p == head) {
+		return p->next;
+	}
+	
+	prev->next = p->next;
+	delete p;
+	return head;
+}
+
+
+/// <summary>
+/// 148. Sort List
+/// </summary>
+
+ListNode* FindMid(ListNode* left, ListNode* right) {
+	/* 快慢指针找中点 */
+	ListNode* slow, * fast;
+	slow = fast = left;
+	while (fast != right && fast->next !=right) {
+		fast = fast->next->next;
+		slow = slow->next;
+	}
+	return slow;
+}
+
+ListNode* MergeList(ListNode* l1, ListNode* l2) {
+	ListNode dummy;
+	ListNode* d = &dummy;
+
+	while (l1 && l2) {
+		if (l1->val < l2->val) {
+			d->next = l1;
+			l1 = l1->next;
+		}
+		else {
+			d->next = l2;
+			l2 = l2->next;
+		}
+		d = d->next;
+	}
+	d->next = l1 ? l1 : l2;
+	return dummy.next;
+}
+
+ListNode* MergeSortList(ListNode* left, ListNode* right) {
+	/* 归并排序 */
+	if (left->next == right) {
+		left->next = nullptr;
+		return left;
+	}
+	ListNode* mid = FindMid(left, right);
+	return MergeList(MergeSortList(left, mid), MergeSortList(mid, right));
+}
+
+ListNode* sortList(ListNode* head) {
+	if (!head) {
+		return head;
+	}
+	return MergeSortList(head, nullptr);
 }

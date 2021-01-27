@@ -1,15 +1,16 @@
 #pragma once
 #include <vector>
 #include <string>
+#include "list.h"
 using std::vector;
 using std::string;
-typedef struct ListNode {
-	int val;
-	ListNode* next;
-	ListNode() : val(0), next(nullptr) {}
-	ListNode(int x) : val(x), next(nullptr) {}
-	ListNode(int x, ListNode* next) : val(x), next(next) {}
-}ListNode;
+//typedef struct ListNode {
+//	int val;
+//	ListNode* next;
+//	ListNode() : val(0), next(nullptr) {}
+//	ListNode(int x) : val(x), next(nullptr) {}
+//	ListNode(int x, ListNode* next) : val(x), next(next) {}
+//}ListNode;
 
 vector<int> findDisappearedNumbers(vector<int>& nums);			/// 448. Find All Numbers Disappeared in an Array
 void rotate(vector<vector<int>>& matrix);						/// 48. Rotate Image
