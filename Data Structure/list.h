@@ -1,4 +1,6 @@
 #pragma once
+#include <vector>
+using std::vector;
 typedef struct ListNode {
 	int val;
 	ListNode* next;
@@ -7,6 +9,7 @@ typedef struct ListNode {
 	ListNode(int x, ListNode* next) : val(x), next(next) {}
 }ListNode;
 
+ListNode* createList(vector<int> a);
 ListNode* reverseList(ListNode* head);				/// 206. Reverse Linked List
 ListNode* mergeTwoLists(ListNode* l1, ListNode* l2);/// 21. Merge Two Sorted Lists
 ListNode* swapPairs(ListNode* head);				/// 24. Swap Nodes in Pairs

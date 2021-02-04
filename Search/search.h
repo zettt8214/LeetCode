@@ -1,15 +1,11 @@
 #pragma once
 #include <vector>
 #include <string>
+#include "../Data Structure/tree.h" /* TreeNode */
+
 using std::vector;
 using std::string;
 
-typedef struct TreeNode { ///< 257. Binary Tree Paths 
-	int val;
-	TreeNode* left;
-	TreeNode* right;
-	TreeNode(int x, TreeNode* l = NULL, TreeNode* r = NULL) : val(x), left(l), right(r) {}
-}TreeNode;
 
 // binsearch
 int MySqrt(int x);											//69. Sqrt(x)

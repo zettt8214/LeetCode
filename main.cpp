@@ -11,16 +11,16 @@
 #include "Data Structure\data_structure.h"
 #include "String\str.h"
 #include "Data Structure\list.h"
-
+#include "Data Structure\tree.h"
 
 using namespace std;
 
 int main() {
-	ListNode n0(0);
-	ListNode n4(4, &n0);
-	ListNode n3(3, &n4);
-	ListNode n5(5, &n3);
-	ListNode n1(-1, &n5);
-	sortList(&n1);
-
+	vector<int> nodes1 = { 1,65535,2};
+	vector<int> nodes2 = { 15,7,20 };
+	vector<int> list = { -10, -3, 0, 5, 9 };
+	ListNode* l = createList(list);
+	TreeNode* t1 = createTree(nodes1);
+	TreeNode* t2 = createTree(nodes2);
+	deleteNode(t1,1);
 }

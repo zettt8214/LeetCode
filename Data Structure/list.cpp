@@ -3,6 +3,17 @@
 
 using namespace std;
 
+ListNode* createList(vector<int> a) {
+	ListNode* dummy = new ListNode;
+	ListNode* p = dummy;
+
+	for (auto num : a) {
+		p->next = new ListNode(num);
+		p = p->next;
+	}
+	return dummy->next;
+}
+
 /// <summary>
 /// 206. Reverse Linked List
 /// </summary>

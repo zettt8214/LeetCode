@@ -42,6 +42,9 @@
     <ClCompile Include="Data Structure\list.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Data Structure\tree.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Greedy\greedy.h">
@@ -66,6 +69,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Data Structure\list.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Data Structure\tree.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
