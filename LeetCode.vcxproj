@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Data Structure\data_structure.cpp" />
+    <ClCompile Include="Data Structure\graph.cpp" />
     <ClCompile Include="Data Structure\list.cpp" />
     <ClCompile Include="Data Structure\tree.cpp" />
     <ClCompile Include="Divide and Conquer\divide_conquer.cpp" />
@@ -152,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Data Structure\data_structure.h" />
+    <ClInclude Include="Data Structure\graph.h" />
     <ClInclude Include="Data Structure\list.h" />
     <ClInclude Include="Data Structure\tree.h" />
     <ClInclude Include="Divide and Conquer\divide_conquer.h" />
