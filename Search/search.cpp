@@ -10,16 +10,11 @@
 #include "search.h"
 using namespace std;
 
-// 二分查找
-/*************************************************************************
-* 69.Sqrt(x)
-*
-* Given a non-negative integer x, compute and return the square root of x.
-*
-* Since the return type is an integer, the decimal digits are truncated,
-* and only the integer part of the result is returned.
-*
-***************************************************************************/
+/// 二分查找
+
+/// <summary>
+/// 69.Sqrt(x)
+/// </summary>
 int MySqrt(int x) {
 	int l = 0, r = x, ans = -1;
 	int mid;
@@ -36,16 +31,10 @@ int MySqrt(int x) {
 	return ans;
 }
 
-/***************************************************************************
-* 34. Find First and Last Position of Element in Sorted Array
-*
-* Given an array of integers nums sorted in ascending order,
-* find the starting and ending position of a given target value.
-*
-* If target is not found in the array, return [-1, -1].
-*
-* Follow up: Could you write an algorithm with O(log n) runtime complexity?
-*****************************************************************************/
+
+/// <summary>
+/// 34. Find First and Last Position of Element in Sorted Array
+/// </summary>
 int findFirstPosition(vector<int>& nums, int target) {
 	int left = 0, right = nums.size() - 1;
 	int mid;
@@ -115,15 +104,10 @@ vector<int> searchRangeSTL(vector<int>& nums, int target) {
 
 }
 
-/*********************************************************************************************
-* 81. Search in Rotated Sorted Array II
-*
-* Suppose an array sorted in ascending order is rotated
-* at some pivot unknown to you beforehand.
-* (i.e., [0,0,1,2,2,5,6] might become [2,5,6,0,0,1,2]).
-* You are given a target value to search. If found in the array return true,
-* otherwise return false.
-*********************************************************************************/
+
+/// <summary>
+/// 81. Search in Rotated Sorted Array II
+/// </summary>
 bool search(vector<int>& nums, int target) {
 	int left = 0, right = nums.size() - 1;
 	int mid;
@@ -162,16 +146,9 @@ bool search(vector<int>& nums, int target) {
 	return false;
 }
 
-/**********************************************************
-* 154. Find Minimum in Rotated Sorted Array II
-*
-* Suppose an array sorted in ascending order is rotated at
-* some pivot unknown to you beforehand.
-* (i.e.,  [0,1,2,4,5,6,7] might become  [4,5,6,7,0,1,2]).
-*
-*	Find the minimum element.
-* 	The array may contain duplicates.
-************************************************************/
+/// <summary>
+///  154. Find Minimum in Rotated Sorted Array II
+/// </summary>
 int findMin(vector<int>& nums) {
 	int ans = INT_MAX;
 	int left = 0, right = nums.size() - 1;
@@ -224,15 +201,10 @@ int findMin2(vector<int>& nums) {
 	return nums[left];
 }
 
-/***********************************************************************
-* 540. Single Element in a Sorted Array
-*
-* You are given a sorted array consisting of only integers where every
-* element appears exactly twice, except for one element which appears
-* exactly once. Find this single element that appears only once.
 
-Follow up: Your solution should run in O(log n) time and O(1) space.
-************************************************************************/
+/// <summary>
+/// 540. Single Element in a Sorted Array
+/// </summary>
 int singleNonDuplicate(vector<int>& nums) {
 	int left = 0, right = nums.size() - 1;
 	int mid;
@@ -259,15 +231,9 @@ int singleNonDuplicate(vector<int>& nums) {
 }
 
 
-/**********************************************************************
-* 4. Median of Two Sorted Arrays
-*
-* Given two sorted arrays nums1 and nums2 of size m and n respectively,
-* return the median of the two sorted arrays.
-* Follow up : The overall run time complexity should be O(log(m + n)).
-*	Solution:
-*		find the Kth samllest element, compare the k/2 element of two arrays
-***********************************************************************/
+/// <summary>
+/// 4. Median of Two Sorted Arrays
+/// </summary>
 int getKthElement(const vector<int>& nums1, const vector<int>& nums2, int k) {
 	int m = nums1.size();
 	int n = nums2.size();
@@ -311,13 +277,11 @@ double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
 
 
 // DFS
-/**
-* @brief	695. Max Area of Island
-* @detail	Given a non-empty 2D array grid of 0's and 1's,
-*			an island is a group of 1's (representing land) connected 4-directionally (horizontal or vertical.)
-*			You may assume all four edges of the grid are surrounded by water.
-*			Find the maximum area of an island in the given 2D array. (If there is no island, the maximum area is 0.)
-*/
+
+
+/// <summary>
+/// @brief	695. Max Area of Island
+/// </summary>
 int DfsHelper(int i, int j, vector<vector<bool>>& is_visited, vector<vector<int>>& grid) {
 	int rows = grid.size();
 	int column = grid[0].size();
@@ -360,17 +324,9 @@ int maxAreaOfIsland(vector<vector<int>>& grid) {
 	return max_area;
 }
 
-/*
-* @brief	547. Number of Provinces
-* @detail	There are n cities. Some of them are connected, while some are not.
-*			If city a is connected directly with city b, and city b is connected directly with city c,
-*			then city a is connected indirectly with city c.
-*			A province is a group of directly or indirectly connected cities and no other cities outside of the group.
-*			You are given an n x n matrix isConnected where isConnected[i][j] = 1
-*			if the ith city and the jth city are directly connected, and isConnected[i][j] = 0 otherwise.
-*			Return the total number of provinces.
-*/
-
+/// <summary>
+/// 547. Number of Provinces
+/// </summary>
 int findCircleNum(vector<vector<int>>& isConnected) {
 	int city_nums = isConnected.size();
 	vector<bool> is_visited(city_nums, false);
@@ -401,6 +357,7 @@ int findCircleNum(vector<vector<int>>& isConnected) {
 }
 
 typedef struct City {
+	//并查集
 	int parent;
 	int rank;
 }City;
@@ -449,23 +406,10 @@ int findCircleNumByUnionFind(vector<vector<int>>& isConnected) {
 	return privonces;
 }
 
-/**
-* @brief	417. Pacific Atlantic Water Flow
-* @detail	Given an m x n matrix of non-negative integers representing the height
-*			of each unit cell in a continent, the "Pacific ocean" touches the left
-*			and set1 edges of the matrix and the "Atlantic ocean" touches the right and set2 edges.
-*
-*			Water can only flow in four directions (up, down, left, or right)
-*			from a cell to another one with height equal or lower.
-*
-*			Find the list of grid coordinates where water can flow to both the Pacific and Atlantic ocean.
-*
-* @note:	The order of returned grid coordinates does not matter.
-*			Both m and n are less than 150.
-*/
 
-
-
+/// <summary>
+/// 417. Pacific Atlantic Water Flow
+/// </summary>
 void DfsHelper(vector<vector<int>>& matrix, int abscissa, int ordinate, vector<vector<bool>>& can_arrive) {
 	int row = matrix.size();
 	int column = matrix[0].size();
@@ -485,7 +429,6 @@ void DfsHelper(vector<vector<int>>& matrix, int abscissa, int ordinate, vector<v
 
 
 }
-
 vector<vector<int>> pacificAtlantic(vector<vector<int>>& matrix) {
 	int row = matrix.size();
 	if (row == 0) {
@@ -519,14 +462,10 @@ vector<vector<int>> pacificAtlantic(vector<vector<int>>& matrix) {
 
 
 //回溯算法
-/*
-* @brief	46. Permutations
-* @detail	Given an array nums of distinct integers, return all the possible permutations.
-*			You can return the answer in any order.
-*/
 
-
-
+/// <summary>
+/// 46. Permutations
+/// </summary>
 vector<vector<int>> ans;
 vector<int> permutation;
 vector<bool> used;
@@ -552,15 +491,12 @@ vector<vector<int>> permute(vector<int>& nums) {
 	return ans;
 }
 
-/**
-* @brief	77. Combinations
-* @detail	Given two integers n and k, return all possible combinations of k numbers out of 1 ... n.
-*			You may return the answer in any order.
-*/
 
+/// <summary>
+/// 77. Combinations
+/// </summary>
 vector<int> combination;
 vector<vector<int>>	combinations_result;
-
 void CombineTraceBack(int n, int k, int start_index) {
 	if (combination.size() == k) {
 		combinations_result.push_back(combination);
@@ -572,21 +508,15 @@ void CombineTraceBack(int n, int k, int start_index) {
 		combination.pop_back();
 	}
 }
-
 vector<vector<int>> combine(int n, int k) {
 	CombineTraceBack(n, k, 1);
 	return combinations_result;
 }
 
-/**
-* @brief	79. Word Search
-* @detail	Given an m x n board and a word, find if the word exists in the grid.
-*			The word can be constructed from letters of sequentially adjacent cells,
-*			where "adjacent" cells are horizontally or vertically neighboring.
-*			The same letter cell may not be used more than once.
-*
-*/
 
+/// <summary>
+/// 79. Word Search
+/// </summary>
 void ExitTraceBack(vector<vector<bool>>& used, vector<vector<char>>& board, string word, int index, int abscissa, int ordinate, bool& is_find) {
 	int row = board.size();
 	int column = board[0].size();
@@ -616,7 +546,6 @@ void ExitTraceBack(vector<vector<bool>>& used, vector<vector<char>>& board, stri
 	}
 
 }
-
 bool exist(vector<vector<char>>& board, string word) {
 	vector<vector<bool>> used;
 	used.resize(board.size(), vector<bool>(board[0].size(), false));
@@ -631,18 +560,13 @@ bool exist(vector<vector<char>>& board, string word) {
 	return is_find;
 }
 
-/**
-* @brief	51. N-Queens
-* @detail	The n-queens puzzle is the problem of placing n queens on an n x n chessboard such that no two queens attack each other.
-*			Given an integer n, return all distinct solutions to the n-queens puzzle.
-*
-*			Each solution contains a distinct board configuration of the n-queens' placement, where 'Q' and '.'
-*			both indicate a queen and an empty space, respectively.
-*/
 
+
+/// <summary>
+/// 51. N-Queens
+/// </summary>
 vector<vector<string>> result;
 vector<string> solution;
-
 void NQueensHelper(vector<vector<bool>>& used, int row, int n) {
 
 	if (row == n) {
@@ -680,10 +604,6 @@ vector<vector<string>> solveNQueens(int n) {
 
 /// <summary>
 /// 934. Shortest Bridge
-/// In a given 2D binary array A, there are two islands.  
-/// (An island is a 4-directionally connected group of 1s not connected to any other 1s.)
-/// Now, we may change 0s to 1s so as to connect the two islands together to form 1 island.
-/// Return the smallest number of 0s that must be flipped.  (It is guaranteed that the answer is at least 1.)
 /// </summary>
 void Dfs(vector<vector<int>>& A, queue<pair<int, int>>& Q, int abscissa, int ordinate) {
 	if (abscissa < 0 || abscissa >= A.size() || ordinate < 0 || ordinate >= A[0].size() || A[abscissa][ordinate] == -1) {
@@ -707,9 +627,6 @@ void Dfs(vector<vector<int>>& A, queue<pair<int, int>>& Q, int abscissa, int ord
 		Q.push({ abscissa ,ordinate });		///< 将与第一个岛相邻的点入队列，作为第一层,此时距离为0，用-1表示；
 		return;
 	}
-
-
-
 }
 int shortestBridge(vector<vector<int>>& A) {
 	int row = A.size();
@@ -758,10 +675,7 @@ int shortestBridge(vector<vector<int>>& A) {
 						Q.push({ next_x ,next_y });
 					}
 				}
-				
-				
 			}
-
 		}
 		distance++;								///< 搜索下一层，距离+1；
 	}
@@ -771,19 +685,7 @@ int shortestBridge(vector<vector<int>>& A) {
 
 /// <summary>
 /// 126. Word Ladder II
-/// Given two words (beginWord and endWord), and a dictionary's word list, 
-/// find all shortest transformation sequence(s) from beginWord to endWord, such that:
-/// Only one letter can be changed at a time
-/// Each transformed word must exist in the word list.Note that beginWord is not a transformed word.
-/// <note>
-///		Return an empty list if there is no such transformation sequence.
-///		All words have the same length.
-///		All words contain only lowercase alphabetic characters.
-///		You may assume no duplicates in the word list.
-///		You may assume beginWordand endWord are non - empty and are not the same.
-/// </note>
 /// </summary>
-
 void TraceBack(vector<vector<string>>& results, vector<string>& ans,string word, string endWord, 
 	unordered_map<string, vector<string>>& next,int distance,int count) {
 	if (count == distance) {
@@ -866,7 +768,7 @@ vector<vector<string>> findLadders(string beginWord, string endWord, vector<stri
 }
 
 /// <summary>
-/// 双向BFS获取每个单词的子节点
+/// 126. Word Ladder II - 使用双向BFS加速搜索过程
 /// </summary>
 void TwoWayBfs(unordered_set<string>& set1, unordered_set<string>& set2, unordered_set<string>& word_list,
 	unordered_map<string, vector<string>>& next, bool direction) {
@@ -914,7 +816,6 @@ void TwoWayBfs(unordered_set<string>& set1, unordered_set<string>& set2, unorder
 	if (!found) {
 		TwoWayBfs(set2, temp, word_list, next, !direction);
 	}
-	
 }
 void TraceBackHelper(vector<vector<string>>& results, vector<string>& ans, string& word, string& endWord,
 	unordered_map<string, vector<string>>& next) {
@@ -922,21 +823,13 @@ void TraceBackHelper(vector<vector<string>>& results, vector<string>& ans, strin
 		results.push_back(ans);
 		return;
 	}
-	
-
 	for (auto next_word : next[word]) {
 		ans.push_back(next_word);
 		TraceBackHelper(results, ans, next_word, endWord, next);
 		ans.pop_back();
 	}
 }
-/// <summary>
-/// 使用双向BFS加速搜索过程
-/// </summary>
-/// <param name="beginWord"></param>
-/// <param name="endWord"></param>
-/// <param name="wordList"></param>
-/// <returns></returns>
+
 vector<vector<string>> findLaddersByTwoWayBfs(string beginWord, string endWord, vector<string>& wordList) {
 	unordered_set<string> word_list;
 	vector<vector<string>> results;
@@ -969,11 +862,7 @@ vector<vector<string>> findLaddersByTwoWayBfs(string beginWord, string endWord, 
 
 /// <summary>
 /// 130. Surrounded Regions
-/// Given a 2D board containing 'X' and 'O' (the letter O), capture all regions surrounded by 'X'.
-/// A region is captured by flipping all 'O's into 'X's in that surrounded region.
 /// </summary>
-
-
 void dfs(vector<vector<char>>& board,vector<vector<bool>>& is_full,int x,int y) {
 	int row = board.size();
 	int column = board[0].size();
@@ -1007,8 +896,6 @@ void solve(vector<vector<char>>& board) {
 		if (board[row - 1][i] == 'O')
 			dfs(board, is_full, row - 1, i);
 	}
-
-	
 	for (int i = 0; i < row; i++) {
 		for (int j = 0; j < column; j++) {
 			if (is_full[i][j]) {
@@ -1017,8 +904,6 @@ void solve(vector<vector<char>>& board) {
 		}
 	}
 }
-
-
 void binaryTreePathsHelper(TreeNode* root, vector<string>& result, vector<int>& path) {
 	if (!root->left && !root->right) {
 		string str_path;
@@ -1048,7 +933,6 @@ void binaryTreePathsHelper(TreeNode* root, vector<string>& result, vector<int>& 
 /// <summary>
 /// 257. Binary Tree Paths
 /// </summary>
-
 vector<string> binaryTreePaths(TreeNode* root) {
 	vector<string> result;
 	if (!root) {
@@ -1065,10 +949,7 @@ vector<string> binaryTreePaths(TreeNode* root) {
 
 /// <summary>
 /// 47 Permutations II
-/// Given a collection of numbers, nums, that might contain duplicates, 
-/// return all possible unique permutations in any order.
 /// </summary>
-
 void permuteUniqueHelper(vector<int>& nums, vector<vector<int>>& result, vector<int>& path, vector<bool>& used) {
 	
 	if (path.size() == nums.size()  ) {
@@ -1117,12 +998,8 @@ vector<vector<int>> permuteUnique(vector<int>& nums) {
 }
 
 /// <summary>
-/// Given a collection of candidate numbers (candidates) and a target number (target), 
-/// find all unique combinations in candidates where the candidate numbers sum to target.
-/// Each number in candidates may only be used once in the combination.
-/// Note: The solution set must not contain duplicate combinations.
+//40. Combination Sum II
 /// </summary>
-
 void combinationSum2Helper(vector<int>& candidates, vector<vector<int>>& result, 
 	vector<int>& path, vector<bool>& used,int target,int sum,int start) {
 	if (sum == target) {
@@ -1166,16 +1043,7 @@ vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
 
 /// <summary>
 /// 310. Minimum Height Trees
-/// A tree is an undirected graph in which any two vertices are connected by exactly one path. In other words, 
-/// any connected graph without simple cycles is a tree.
-/// Given a tree of n nodes labelled from 0 to n - 1, and an array of n - 1 edges 
-/// where edges[i] = [ai, bi] indicates that there is an undirected edge between the two nodes ai and bi in the tree, 
-/// you can choose any node of the tree as the root.When you select a node x as the root, the result tree has height h.
-/// Among all possible rooted trees, those with minimum height(i.e.min(h))  are called minimum height trees(MHTs).
-/// Return a list of all MHTs' root labels. You can return the answer in any order.
-/// The height of a rooted tree is the number of edges on the longest downward path between the root and a leaf.
 /// </summary>
-
 void CreateHelper(vector<vector<int>>& adjacency_matrix, vector<int>& vertex_degreeint, const vector<vector<int>>& edges) {
 
 	for (int i = 0; i < edges.size(); i++) {
@@ -1242,12 +1110,7 @@ vector<int> findMinHeightTrees(int n, vector<vector<int>>& edges) {
 }
 
 /// <summary>
-/// Write a program to solve a Sudoku puzzle by filling the empty cells.
-/// A sudoku solution must satisfy all of the following rules :
-/// Each of the digits 1 - 9 must occur exactly once in each row.
-/// Each of the digits 1 - 9 must occur exactly once in each column.
-/// Each of the digits 1 - 9 must occur exactly once in each of the 9 3x3 sub - boxes of the grid.
-/// The '.' character indicates empty cells.
+/// 37. Sudoku Solver
 /// </summary>
 bool IsValid(vector<vector<char>>& board, int row, int column, char c) {
 	for (int i = 0; i < 9; i++) {
@@ -1295,5 +1158,4 @@ bool SudokuTraceBack(vector<vector<char>>& board) {
 }
 void solveSudoku(vector<vector<char>>& board) {
 	SudokuTraceBack(board);
-	
 }

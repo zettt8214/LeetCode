@@ -4,14 +4,8 @@
 #include <ctime>
 #include <iostream>
 #include <unordered_map>
+
 using namespace std;
-/*
-* 215. Kth Largest Element in an Array
-* 
-* Find the kth largest element in an unsorted array. 
-* Note that it is the kth largest element in the 
-* sorted order, not the kth distinct element.
-*/
 
 void swap(vector<int>& nums, int i, int j) {
 	int temp;
@@ -19,6 +13,11 @@ void swap(vector<int>& nums, int i, int j) {
 	nums[i] = nums[j];
 	nums[j] = nums[i];
 }
+
+
+/// <summary>
+/// 215. Kth Largest Element in an Array
+/// </summary>
 int quickSelect(vector<int>&nums,int left,int right) {  
 	int mid = left + (right - left) / 2;
 	swap(nums,left, mid);
@@ -59,6 +58,10 @@ int findKthLargest(vector<int>& nums, int k) {
 * 
 * Given a non-empty array of integers, return the k most frequent elements.
 */
+
+/// <summary>
+/// 347. Top K Frequent Elements
+/// </summary>
 vector<int> topKFrequent(vector<int>& nums, int k) { 
 	unordered_map<int, int> counts;
 	int maxCount = 0;
@@ -82,11 +85,9 @@ vector<int> topKFrequent(vector<int>& nums, int k) {
 }
 
 
-/*
-* 451. Sort Characters By Frequency
-* 
-* Given a string, sort it in decreasing order based on the frequency of characters.
-*/
+/// <summary>
+///  451. Sort Characters By Frequency
+/// </summary>
 string frequencySort(string s) {
 	unordered_map<char, int> counts;
 	int maxCount = 0;
@@ -111,19 +112,9 @@ string frequencySort(string s) {
 }
 
 
-/*
-* Given an array nums with n objects colored red, white,
-* or blue, sort them in - place so that objects of the same 
-* color are adjacent, with the colors in the order red,
-* white, and blue.
-* 
-* Here, we will use the integers 0, 1, and 2 to represent 
-* the color red, white, and blue respectively.
-* 
-* Follow up :
-* Could you solve this problem without using the library's sort function?
-* Could you come up with a one - pass algorithm using only O(1) constant space ?
-*/
+/// <summary>
+/// 75. Sort Colors
+/// </summary>
 void sortColors(vector<int>& nums) {
 	int p0 = 0, p1 = 0;
 	for (int i = 0; i < nums.size(); i++) {

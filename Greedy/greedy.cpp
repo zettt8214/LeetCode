@@ -5,17 +5,9 @@
 using namespace std;
 
 
-/********************************************************************************************
-* 455. Assign Cookies
-* 
-* Assume you are an awesome parent and want to give your children some cookies.
-* But, you should give each child at most one cookie.
-* Each child i has a greed factor g[i], which is the minimum size of a cookie
-* that the child will be content with;and each cookie j has a size s[j].
-* If s[j] >= g[i],we can assign the cookie j to the child i, and the child i will be content.
-*
-* Your goal is to maximize the number of your content children and output the maximum number.
-*********************************************************************************************/
+/// <summary>
+///455. Assign Cookies
+/// </summary>
 int findContentChildren(vector<int>& g, vector<int>& s) {
 	sort(g.begin(), g.end());
 	sort(s.begin(), s.end());
@@ -30,20 +22,10 @@ int findContentChildren(vector<int>& g, vector<int>& s) {
 	return child;
 }
 
-/***********************************************************************************
-* 135. Candy
-* 
-* There are N children standing in a line. Each child is assigned a rating value.
-* You are giving candies to these children subjected to the following requirements:
-*	Each child must have at least one candy.
-*	Children with a higher rating get more candies than their neighbors.
-* What is the minimum candies you must give?
-*
-* Solution:
-*	First: from 0 to size of array, for every two elemts ,if left lesser than right,
-*		   right = left + 1.
-*	Second: from  size of array to 0,do the same operation.
-*************************************************************************************/
+
+/// <summary>
+///  135. Candy
+/// </summary>
 int candy(vector<int>& ratings) {
 	valarray<int> candies(1, ratings.size());
 
@@ -62,16 +44,10 @@ int candy(vector<int>& ratings) {
 	return candies.sum();
 }
 
-/***************************************************************************
-* 435. Non-overlapping Intervals
-* 
-* Given a collection of intervals, find the minimum number of intervals you
-* need to remove to make the rest of the intervals non-overlapping.
-*
-* Solution:
-*	First: sort the array by intervals' end point
-*	Second: select more intervals
-****************************************************************************/
+
+/// <summary>
+/// 435. Non-overlapping Intervals
+/// </summary>
 int eraseOverlapIntervals(vector<vector<int>>& intervals) {
 	if (intervals.size() == 0) {
 		return 0;
@@ -102,20 +78,10 @@ int eraseOverlapIntervals(vector<vector<int>>& intervals) {
 	return move_count;
 }
 
-/***************************************************************************
-* 605. Can Place Flowers
-* 
-* You have a long flowerbed in which some of the plots are planted, 
-* and some are not. However, flowers cannot be planted in adjacent plots.
-* 
-* Given an integer array flowerbed containing 0's and 1's, 
-* where 0 means empty and 1 means not empty, and an integer n, 
-* return if n new flowers can be planted in the flowerbed without 
-* violating the no-adjacent-flowers rule.
-* 
-* Solution 
-*	if plot is not planted ,then judge whether it's adjacent plots are empty.
-****************************************************************************/
+
+/// <summary>
+/// 605. Can Place Flowers
+/// </summary>
 bool canPlaceFlowers(vector<int>& flowerbed, int n) {
 	int len = flowerbed.size();
 	int count = 0;
@@ -137,22 +103,9 @@ bool canPlaceFlowers(vector<int>& flowerbed, int n) {
 	return false;
 }
 
-/*********************************************************************************************
-* 452. Minimum Number of Arrows to Burst Balloons
-* 
-* There are some spherical balloons spread in two-dimensional space.
-* For each balloon, provided input is the start and end coordinates of the horizontal diameter.
-* Since it's horizontal, y-coordinates don't matter, and hence the x-coordinates of start and 
-* end of the diameter suffice. The start is always smaller than the end.
-*
-* An arrow can be shot up exactly vertically from different points along the x-axis. 
-* A balloon with xstart and xend bursts by an arrow shot at x if xstart ≤ x ≤ xend. 
-* There is no limit to the number of arrows that can be shot. 
-* An arrow once shot keeps traveling up infinitely.
-*
-* Given an array points where points[i] = [xstart, xend], 
-* return the minimum number of arrows that must be shot to burst all balloons.
-***********************************************************************************************/
+/// <summary>
+/// 452. Minimum Number of Arrows to Burst Balloons
+/// </summary>
 int findMinArrowShots(vector<vector<int>>& points) {
 	if (points.size() == 0) {
 		return 0;
@@ -173,15 +126,11 @@ int findMinArrowShots(vector<vector<int>>& points) {
 	return arrowCount;
 }
 
-/*********************************************************************
-* 763. Partition Labels
-* 
-* A string S of lowercase English letters is given. 
-* We want to partition this string into as many parts as possible 
-* so that each letter appears in at most one part, 
-* and return a list of integers representing the size of these parts.
-*
-**********************************************************************/
+
+
+/// <summary>
+///  763. Partition Labels
+/// </summary>
 vector<int> partitionLabels(string S) {
 
 	vector<int> partition;
@@ -208,19 +157,10 @@ vector<int> partitionLabels(string S) {
 	return partition;
 }
 
-/*********************************************************************
-* 122. Best Time to Buy and Sell Stock II
-* 
-* Say you have an array prices for which the ith element 
-* is the price of a given stock on day i.
-* 
-* Design an algorithm to find the maximum profit. 
-* You may complete as many transactions as you like 
-* (i.e., buy one and sell one share of the stock multiple times).
-* 
-* Note: You may not engage in multiple transactions at the same time 
-* (i.e., you must sell the stock before you buy again).
-***********************************************************************/
+
+/// <summary>
+/// 122. Best Time to Buy and Sell Stock II
+/// </summary>
 int maxProfitII(vector<int>& prices) {
 	int profit = 0;
 	for (int i = 0; i < prices.size() - 1; i++) {
@@ -231,20 +171,10 @@ int maxProfitII(vector<int>& prices) {
 	return profit;
 }
 
-/*******************************************************************************
-* 406. Queue Reconstruction by Height
-* 
-* You are given an array of people, people, which are the attributes of 
-* some people in a queue (not necessarily in order). 
-* Each people[i] = [hi, ki] represents the ith person of height hi with 
-* exactly ki other people in front who have a height greater than or equal 
-* to hi.
-* 
-* Reconstruct and return the queue that is represented by the input array people. 
-* The returned queue should be formatted as an array queue, 
-* where queue[j] = [hj, kj] is the attributes of the jth person in the queue 
-* (queue[0] is the person at the front of the queue).
-*********************************************************************************/
+
+/// <summary>
+///  406. Queue Reconstruction by Height
+/// </summary>
 vector<vector<int>> reconstructQueue(vector<vector<int>>& people) {
 	vector<vector<int>> newQueue;
 	if (people.empty())
@@ -261,16 +191,10 @@ vector<vector<int>> reconstructQueue(vector<vector<int>>& people) {
 	return newQueue;
 }
 
-/*******************************************************************************
-* 665. Non-decreasing Array
-* 
-* Given an array nums with n integers, your task is to check if it could 
-* become non-decreasing by modifying at most 1 element.
-* 
-* We define an array is non-decreasing if nums[i] <= nums[i + 1] 
-* holds for every i (0-based) such that (0 <= i <= n - 2).
-*
-********************************************************************************/
+
+/// <summary>
+/// 665. Non-decreasing Array
+/// </summary>
 bool checkPossibility(vector<int>& nums) {
 	int flag = 0;
 	for (int i = 0; i < nums.size() - 1; i++) {
