@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Data Structure\complex_data_structure.cpp" />
     <ClCompile Include="Data Structure\data_structure.cpp" />
     <ClCompile Include="Data Structure\graph.cpp" />
     <ClCompile Include="Data Structure\list.cpp" />
@@ -146,12 +147,12 @@
     <ClCompile Include="Divide and Conquer\divide_conquer.cpp" />
     <ClCompile Include="Dynamic Programming\dp.cpp" />
     <ClCompile Include="Greedy\greedy.cpp" />
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="Search\search.cpp" />
     <ClCompile Include="Sort\sort.cpp" />
     <ClCompile Include="String\str.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Data Structure\complex_data_structure.h" />
     <ClInclude Include="Data Structure\data_structure.h" />
     <ClInclude Include="Data Structure\graph.h" />
     <ClInclude Include="Data Structure\list.h" />
